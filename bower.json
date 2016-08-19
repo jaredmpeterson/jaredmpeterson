@@ -1,0 +1,20 @@
+{
+  "name": "jaredmpeterson",
+  "description": "jaredmpeterson.com",
+  "main": "js/app.js",
+  "authors": [
+    "jaredmpeterson"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/jaredmpeterson/jaredmpeterson",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8"
+  }
+}
