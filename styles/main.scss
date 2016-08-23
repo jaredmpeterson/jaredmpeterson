@@ -1,0 +1,942 @@
+$PURPLE: #491563;
+$RED: #810A02;
+$JAZZY: #f9a11e;
+$JAZZP: #1b2c5b;
+$red: #F44336;
+
+//colors
+$color_tundora_approx: #444;
+$white: #fff;
+$color_pumice_approx: #c5c5c5;
+$color_wild_sand_approx: #f5f5f5;
+$color_flush_mahogany_approx: #c0392b;
+$color_cinnabar_approx: #e74c3c;
+$color_lemon_chiffon_approx: #fefac7;
+$color_fuscous_gray_approx: #555555;
+$color_alabaster_approx: #f8f9fa;
+$color_mystic_approx: #e6e9eb;
+$color_pippin_approx: #ffe5e3;
+$color_milano_red_approx: #d90f00;
+$color_melon_approx: #f9bbb8;
+$color_milk_punch_approx: #fff6d6;
+$color_paarl_approx: #a26025;
+$color_goldenrod_approx: #f8d867;
+$color_tea_green_approx: #cef0cb;
+$color_olive_drab_approx: #698733;
+$color_feijoa_approx: #91cc8c;
+$color_mine_shaft_approx: #333;
+$black: #000;
+$color_log_cabin_approx: #222;
+$color_shark_10_approx: rgba(40, 40, 40, 0.1);
+$black_85: rgba(0,0,0,0.85);
+$color_gray_nurse_approx: #eaeaea;
+$color_shark_40_approx: rgba(40,40,40,0.4);
+$white_50: rgba(255,255,255,0.5);
+$mercury: #e5e5e5;
+
+//fonts
+$font_0: Helvetica;
+$font_1: Helvetica Neue;
+$font_2: Arial;
+$font_3: sans-serif;
+$font_4: Oswald;
+$font_5: monospace;
+
+//urls
+$url_0: url(../img/single.jpg);
+
+//@extend-elements
+//original selectors
+//h1, h2, h3, h4, h5, h6, nav a, .widget h6, .filters li a, blockquote, p[data-pullquote]:before, input[type="submit"]
+%extend_1 {
+	font-family: $font_4, $font_3;
+	text-transform: uppercase;
+	font-weight: 400;
+}
+
+//original selectors
+//input, textarea
+%extend_2 {
+	width: 100%;
+	background: $color_wild_sand_approx;
+	border: 1px solid $color_pumice_approx;
+	padding: 15px 20px;
+	margin: 0 0 15px;
+}
+
+//original selectors
+//sup, sub
+%extend_3 {
+	position: relative;
+	font-size: 80%;
+	line-height: 0;
+	vertical-align: baseline;
+}
+
+//original selectors
+//.grid.portfolio li div, .more-hover div
+%extend_4 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: $black_85;
+	display: none;
+	color: $white;
+	text-align: center;
+	border: 5px solid $black;
+}
+
+//original selectors
+//.grid.portfolio li a, .more-hover a
+%extend_5 {
+	display: block;
+	width: 100%;
+	height: 100%;
+	color: $white;
+	border: none;
+}
+
+//original selectors
+//.grid.portfolio li a h4, .grid.portfolio li a p, .more-hover a h4, .more-hover a p
+%extend_6 {
+	position: relative;
+	top: 50%;
+	margin-top: -22px;
+}
+
+//original selectors
+//dl.accordion dt, dl.accordion dd
+%extend_7 {
+	margin-bottom: 10px;
+	border: 1px solid $color_pumice_approx;
+	display: block;
+}
+
+
+body {
+	background: $color_wild_sand_approx;
+	font-family: $font_0, $font_1, $font_2, $font_3;
+	font-size: 12px;
+	line-height: 24px;
+	letter-spacing: 0.08em;
+	color: $color_tundora_approx;
+	overflow-x: hidden;
+}
+h1 {
+	@extend %extend_1;
+	font-weight: 700;
+}
+h2 {
+	@extend %extend_1;
+	font-weight: 700;
+}
+h3 {
+	@extend %extend_1;
+	font-weight: 700;
+}
+h4 {
+	@extend %extend_1;
+}
+h5 {
+	@extend %extend_1;
+}
+h6 {
+	@extend %extend_1;
+	font-weight: 300;
+}
+nav {
+	padding-bottom: 30px;
+	background: $color_wild_sand_approx;
+	a {
+		@extend %extend_1;
+		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+		transition: all 300ms ease-in-out;
+		display: block;
+		padding: 5px 20px;
+		&.active {
+			color: $color_cinnabar_approx;
+		}
+	}
+	li {
+		position: relative;
+		background: $white;
+		&:hover > a {
+			padding-left: 35px;
+			color: $color_cinnabar_approx;
+			border-color: $color_cinnabar_approx;
+		}
+	}
+	ul {
+		li {
+			ul {
+				display: none;
+				position: absolute;
+				left: 100%;
+				min-width: 225px;
+				top: -1px;
+				z-index: 999;
+				border: 1px solid $color_pumice_approx;
+				//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+				box-shadow: 2px 2px 1px 0 $color_shark_10_approx;
+				li:last-child a {
+					border: none;
+				}
+			}
+			&:hover ul {
+				display: block;
+			}
+		}
+		> li:last-of-type a {
+			border-bottom: 1px solid $color_pumice_approx;
+		}
+	}
+}
+.widget {
+	padding: 20px;
+	border-bottom: 1px dotted $color_pumice_approx;
+	background: $white;
+	h6 {
+		@extend %extend_1;
+		font-size: 12px;
+	}
+	p:last-child {
+		margin-bottom: 0;
+	}
+}
+.filters {
+	padding: 0 20px 33px 40px;
+	list-style: circle;
+	li {
+		a {
+			@extend %extend_1;
+			border: none;
+			position: relative;
+			top: 2px;
+		}
+		&:hover {
+			color: $color_cinnabar_approx;
+			border-color: $color_cinnabar_approx;
+			list-style: disc;
+			a {
+				color: $color_cinnabar_approx;
+				border-color: $color_cinnabar_approx;
+			}
+		}
+		&.active {
+			color: $color_cinnabar_approx;
+			border-color: $color_cinnabar_approx;
+			list-style: disc;
+			a {
+				color: $color_cinnabar_approx;
+				border-color: $color_cinnabar_approx;
+			}
+		}
+	}
+}
+small {
+	display: block;
+	font-size: 12px;
+	font-family: $font_0, $font_1, $font_2, $font_3;
+	font-weight: normal;
+	text-transform: none;
+}
+strong {
+	font-weight: bold;
+}
+em {
+	font-style: italic;
+}
+a {
+	color: $color_tundora_approx;
+	text-decoration: none;
+	border-bottom: 1px dotted $color_pumice_approx;
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: all 300ms ease-in-out;
+	&:hover {
+		color: $color_cinnabar_approx;
+		border-color: $color_cinnabar_approx;
+	}
+}
+p {
+	margin-bottom: 25px;
+	a {
+		border: none;
+		color: $color_cinnabar_approx;
+		border-color: $color_cinnabar_approx;
+		&:hover {
+			color: $color_flush_mahogany_approx;
+		}
+	}
+}
+pre {
+	font-family: $font_5;
+	margin-bottom: 25px;
+	padding: 10px 20px;
+	border: 1px solid $color_pumice_approx;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 0 1px 1px $color_gray_nurse_approx;
+	display: block;
+	border-left: 3px solid $color_cinnabar_approx;
+}
+input {
+	@extend %extend_2;
+}
+textarea {
+	@extend %extend_2;
+	min-height: 150px;
+}
+.wrapper {
+	margin: 50px auto;
+	width: 960px;
+	position: relative;
+	background: $white;
+}
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: bottom;
+}
+::selection {
+	background: $color_lemon_chiffon_approx;
+	color: $color_fuscous_gray_approx;
+}
+::-moz-selection {
+	background: $color_lemon_chiffon_approx;
+	color: $color_fuscous_gray_approx;
+}
+// sup {
+// 	@extend %extend_3;
+// 	top: -0.5em;
+// }
+// sub {
+// 	@extend %extend_3;
+// 	top: +0.5em;
+// }
+.cover {
+	background: $url_0 no-repeat center center fixed;
+	background-size: cover;
+}
+hr {
+	margin-bottom: 20px;
+	height: 1px;
+	background: $color_pumice_approx;
+	width: 100%;
+	border: none;
+	clear: both;
+}
+.remove-bottom {
+	margin-bottom: 0;
+}
+.grid {
+	&.blog {
+		.one_half {
+			margin-bottom: 0;
+		}
+		&.one-col {
+			max-width: 1000px;
+			li {
+				width: 100% !important;
+			}
+		}
+		li {
+			padding: 20px;
+			border: 1px solid $color_pumice_approx;
+			margin: -1px 0 0 -1px;
+			width: 50%;
+			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+			transition: background 300ms ease-in-out;
+			background: $color_wild_sand_approx;
+			&:hover {
+				background: $white;
+			}
+		}
+	}
+	li {
+		float: left;
+		width: 33.3%;
+		position: relative;
+	}
+	&.portfolio li {
+		overflow: hidden;
+		div {
+			@extend %extend_4;
+		}
+		a {
+			@extend %extend_5;
+			h4 {
+				@extend %extend_6;
+			}
+			p {
+				@extend %extend_6;
+				margin-top: -5px;
+			}
+		}
+	}
+}
+.small-bottom {
+	margin-bottom: 10px;
+}
+.heavy {
+	font-weight: 700;
+}
+.no-border {
+	border: none;
+}
+.meta {
+	font-size: 11px;
+	font-style: italic;
+}
+.break {
+	height: 50px;
+	&.small {
+		height: 20px;
+	}
+}
+.text-center {
+	text-align: center;
+}
+
+.view-background {
+	position: fixed;
+	z-index: 9;
+	top: 20px;
+	right: 20px;
+	background: $white;
+	border: none;
+	line-height: 0;
+	padding: 13px;
+	border: 1px solid $color_pumice_approx;
+}
+#logo {
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: all 300ms ease-in-out;
+	font-family: $font_4, $font_3;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 45px;
+	padding: 35px 20px 20px;
+	line-height: 40px;
+	background: $color_wild_sand_approx;
+	border-bottom: 1px solid $color_pumice_approx;
+	&:hover {
+		background: $white;
+	}
+	a {
+		border: none;
+	}
+	img {
+		margin-bottom: 13px;
+		filter: drop-shadow(1px 2px 0 $white);
+	}
+}
+header {
+
+	transition: all 300ms ease-in-out;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 280px;
+	z-index: 99;
+	border-right: 1px solid $color_pumice_approx;
+	min-height: 100% !important;
+	background: $color_wild_sand_approx;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 0 -1px 0 1px $white;
+	.widget {
+		&:last-child {
+			border-bottom: 1px solid $color_pumice_approx;
+		}
+		&.first {
+			border-top: 1px solid $color_pumice_approx;
+		}
+	}
+}
+#mobile-nav {
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: all 300ms ease-in-out;
+	background: $color_mine_shaft_approx;
+	width: 100%;
+	height: 40px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99;
+	display: none;
+	cursor: pointer;
+	text-align: center;
+	color: $white;
+	h3 {
+		line-height: 38px;
+	}
+	i {
+		font-size: 24px;
+		//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		text-shadow: 0 1px 0 $black;
+		position: absolute;
+		top: 7px;
+		left: 15px;
+	}
+	img {
+		filter: drop-shadow(1px 2px 1px $color_log_cabin_approx);
+	}
+}
+.header-wrap {
+	position: relative;
+	width: 279px;
+}
+.content {
+	width: 100%;
+	padding-left: 280px;
+	position: relative;
+	left: 0;
+	opacity: 0;
+}
+.more-hover {
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 25px;
+	div {
+		@extend %extend_4;
+	}
+	a {
+		@extend %extend_5;
+		h4 {
+			@extend %extend_6;
+		}
+		p {
+			@extend %extend_6;
+			margin-top: -5px;
+		}
+	}
+	img {
+		max-width: none;
+		width: 100%;
+	}
+}
+#loader {
+	overflow: hidden;
+	width: 100%;
+	position: relative;
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: background 300ms ease-in-out;
+}
+article {
+	padding: 20px 40px 40px;
+	position: relative;
+}
+.video-title {
+	text-align: center;
+	width: 80%;
+	margin: 0 auto 60px;
+	&.blog {
+		margin: 0 auto 40px;
+		padding-top: 50px;
+		h2 {
+			margin-bottom: 35px;
+		}
+	}
+	&.team {
+		margin: 0 auto 40px;
+		padding-top: 50px;
+		h2 {
+			margin-bottom: 35px;
+		}
+	}
+}
+section {
+	max-width: 1000px;
+	background: $white;
+	border-right: 1px solid $color_pumice_approx;
+	border-bottom: 1px solid $color_pumice_approx;
+	&.content {
+		max-width: 1280px;
+		.article-nav {
+			display: none;
+		}
+	}
+}
+.article-nav {
+	width: 100%;
+	position: relative;
+	z-index: 9;
+	background: $white;
+	margin: 0;
+	padding: 10px 20px;
+	height: 55px;
+	text-align: center;
+	font-size: 30px;
+	&.blog {
+		margin-bottom: -30px;
+	}
+	a {
+		border: none;
+		margin-right: 30px;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+.isotope-item {
+	z-index: 2;
+}
+.isotope {
+	//Instead of the line below you could use @include transition-duration($duration-1, $duration-2, $duration-3, $duration-4, $duration-5, $duration-6, $duration-7, $duration-8, $duration-9, $duration-10)
+	transition-duration: 0.8s;
+	//Instead of the line below you could use @include transition-property($property-1, $property-2, $property-3, $property-4, $property-5, $property-6, $property-7, $property-8, $property-9, $property-10)
+	transition-property: height, width;
+	.isotope-item {
+		//Instead of the line below you could use @include transition-duration($duration-1, $duration-2, $duration-3, $duration-4, $duration-5, $duration-6, $duration-7, $duration-8, $duration-9, $duration-10)
+		transition-duration: 0.8s;
+		//Instead of the line below you could use @include transition-property($property-1, $property-2, $property-3, $property-4, $property-5, $property-6, $property-7, $property-8, $property-9, $property-10)
+		transition-property: transform, opacity;
+		&.no-transition {
+			//Instead of the line below you could use @include transition-duration($duration-1, $duration-2, $duration-3, $duration-4, $duration-5, $duration-6, $duration-7, $duration-8, $duration-9, $duration-10)
+			transition-duration: 0s;
+		}
+	}
+	&.no-transition {
+		//Instead of the line below you could use @include transition-duration($duration-1, $duration-2, $duration-3, $duration-4, $duration-5, $duration-6, $duration-7, $duration-8, $duration-9, $duration-10)
+		transition-duration: 0s;
+		.isotope-item {
+			//Instead of the line below you could use @include transition-duration($duration-1, $duration-2, $duration-3, $duration-4, $duration-5, $duration-6, $duration-7, $duration-8, $duration-9, $duration-10)
+			transition-duration: 0s;
+		}
+	}
+}
+#spinningSquaresG {
+	position: absolute;
+	width: 120px;
+	height: 15px;
+	margin: 0 auto;
+	top: 50%;
+	left: 50%;
+	z-index: 9999;
+	margin: -7px 0 0 -60px;
+}
+.spinningSquaresG {
+	position: absolute;
+	top: 0;
+	background-color: $color_tundora_approx;
+	width: 15px;
+	height: 15px;
+	animation-name: bounce_spinningSquaresG;
+	animation-duration: 1.3s;
+	animation-iteration-count: infinite;
+	animation-direction: linear;
+	//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+	transform: scale(.3);
+}
+#spinningSquaresG_1 {
+	left: 0;
+	animation-delay: .52s;
+}
+#spinningSquaresG_2 {
+	left: 15px;
+	animation-delay: .65s;
+}
+#spinningSquaresG_3 {
+	left: 30px;
+	animation-delay: .78s;
+}
+#spinningSquaresG_4 {
+	left: 45px;
+	animation-delay: .91s;
+}
+#spinningSquaresG_5 {
+	left: 60px;
+	animation-delay: 1.04s;
+}
+#spinningSquaresG_6 {
+	left: 75px;
+	animation-delay: 1.17s;
+}
+#spinningSquaresG_7 {
+	left: 90px;
+	animation-delay: 1.3s;
+}
+#spinningSquaresG_8 {
+	left: 105px;
+	animation-delay: 1.43s;
+}
+@-moz-keyframes bounce_spinningSquaresG {
+	0% {
+		background-color: $color_tundora_approx;
+	}
+	100% {
+		background-color: $white;
+	}
+}
+@-webkit-keyframes bounce_spinningSquaresG {
+	0% {
+		background-color: $color_tundora_approx;
+	}
+	100% {
+		background-color: $white;
+	}
+}
+// @-ms-keyframes bounce_spinningSquaresG {
+// 	0% {
+// 		background-color: $color_tundora_approx;
+// 	}
+// 	100% {
+// 		background-color: $white;
+// 	}
+// }
+@-o-keyframes bounce_spinningSquaresG {
+	0% {
+		background-color: $color_tundora_approx;
+	}
+	100% {
+		background-color: $white;
+	}
+}
+@keyframes bounce_spinningSquaresG {
+	0% {
+		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+		transform: scale(1);
+		background-color: $color_tundora_approx;
+	}
+	100% {
+		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+		transform: scale(.3) rotate(90deg);
+		background-color: $white;
+	}
+}
+@media only screen and(min-width: 1600px) {
+	ul.grid li {
+		width: 24.95%;
+	}
+}
+@media only screen and(min-width: 1180px) {
+	.wrapper {
+		width: 1180px;
+		position: relative;
+	}
+}
+@media only screen and(max-width: 1180px) {
+	ul.grid li {
+		width: 49.9%;
+	}
+}
+@media only screen and(min-width: 960px) {
+}
+@media only screen and(max-width: 860px) {
+	header {
+		left: -280px;
+		min-height: 100%;
+		&.active {
+			left: 0;
+		}
+	}
+	.content {
+		padding: 40px 0 0;
+	}
+	#mobile-nav {
+		display: block;
+		&.active {
+			left: 280px;
+		}
+	}
+	h2 {
+		font-size: 26px;
+	}
+	.article-nav {
+		margin: 0;
+		width: 100%;
+	}
+	article {
+		padding: 5%;
+	}
+	.view-background {
+		top: 60px;
+		position: absolute;
+	}
+	ul.grid li {
+		width: 49.9%;
+	}
+	nav ul li ul {
+		display: block;
+		position: static;
+		border: none;
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: none;
+		li {
+			text-indent: 35px;
+			a {
+				padding-left: 0;
+			}
+			&:last-child a {
+				border-bottom: 1px dotted $color_pumice_approx;
+			}
+		}
+	}
+	figure h2 {
+		margin-top: -35px;
+	}
+	.gallery.horizontal li .gallery-details {
+		width: auto;
+		left: 150px;
+		right: 150px;
+	}
+}
+@media only screen and(min-width: 768px) and(max-width: 959px) {
+	.wrapper {
+		width: 768px;
+		position: relative;
+	}
+}
+@media only screen and(max-width: 767px) {
+	.wrapper {
+		width: 90%;
+		margin: 5%;
+		position: relative;
+		padding: 40px;
+	}
+	.one_half {
+		width: 100%;
+	}
+	.one_third {
+		width: 100%;
+	}
+	.two_thirds {
+		width: 100%;
+	}
+	.one_fourth {
+		width: 100%;
+	}
+	.one_fifth {
+		width: 100%;
+	}
+	.two_fifth {
+		width: 100%;
+	}
+	.three_fifth {
+		width: 100%;
+	}
+	.four_fifth {
+		width: 100%;
+	}
+	.one_sixth {
+		width: 100%;
+	}
+	.five_sixth {
+		width: 100%;
+	}
+	.three_fourths {
+		width: 100%;
+	}
+}
+@media only screen and(min-width: 480px) and(max-width: 767px) {
+}
+@media only screen and(max-width: 600px) {
+	ul.grid {
+		li {
+			width: 100%;
+		}
+		&.blog li {
+			width: 100%;
+		}
+	}
+}
+@media only screen and(max-width: 479px) {
+	.gallery.horizontal li .gallery-details {
+		width: auto;
+		left: 50px;
+		right: 50px;
+	}
+	.gallery-details .center {
+		position: relative;
+		top: 0;
+		margin-top: 35px;
+	}
+}
+@media only screen and(max-width: 320px) {
+	.gallery-details .center {
+		position: relative;
+		top: 0;
+		margin-top: 10px;
+	}
+}
+.social a {
+	border-bottom: none;
+	font-size: 20px;
+	margin-right: 7px;
+	color: $color_pumice_approx;
+	&:hover {
+		color: $color_cinnabar_approx;
+		border-color: $color_cinnabar_approx;
+	}
+}
+.one_half .more-hover {
+	margin-bottom: 0;
+}
+.team .more-hover {
+	margin-bottom: 0;
+	a {
+		h4 {
+			margin-top: -27px;
+		}
+		p {
+			margin-top: -27px;
+			margin-top: -5px;
+		}
+	}
+}
+.close i:nth-child(2) {
+	margin-left: -5px;
+}
+.dark-wrapper #comment-title {
+	margin-bottom: 30px;
+}
+.comments input {
+	margin-bottom: 10px;
+	max-width: 500px;
+	clear: left;
+	display: block;
+}
+#comments li ul {
+	padding-left: 105px;
+}
+.tab-container div {
+	padding: 25px 25px 30px;
+	margin-bottom: 25px;
+	padding: 10px 20px;
+	border: 1px solid $color_pumice_approx;
+	display: block;
+	p:last-child {
+		margin-bottom: 0;
+	}
+}
+dl.accordion {
+	margin-bottom: 30px;
+	dt {
+		@extend %extend_7;
+		&.active {
+			border-left: 3px solid $color_cinnabar_approx;
+			a {
+				color: $color_cinnabar_approx;
+			}
+		}
+		a {
+			padding: 10px 20px;
+			display: block;
+			border: none;
+		}
+	}
+	dd {
+		@extend %extend_7;
+		padding: 20px;
+		margin-bottom: 25px;
+		display: none;
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+.isotope-hidden.isotope-item {
+	pointer-events: none;
+	z-index: 1;
+}
