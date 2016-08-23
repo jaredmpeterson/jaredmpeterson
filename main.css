@@ -11,6 +11,7 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
+  align-content: center;
   justify-content: space-between;
 }
 
@@ -19,14 +20,21 @@ body {
   flex-flow: row wrap;
 }
 
+.icon {
+  padding-left: 21px;
+  padding-right: 21px;
+}
+
 .utilities {
   display: flex;
   flex-flow: row wrap;
 }
 
 ul li {
+  text-align: center;
   list-style: none;
   display: inline-block;
+  padding-right: 21px;
 }
 
 .footer {
@@ -56,6 +64,9 @@ ul li {
   overflow: hidden;
   display: flex;
   flex-flow: row wrap;
+  align-items: stretch;
+  align-content: flex-start;
+  justify-content: space-between;
 }
 
 /*
