@@ -44,19 +44,6 @@ ul li {
   padding-right: 21px;
 }
 
-ol {
-  display: flex;
-  align-items: center;
-  align-content: center;
-}
-ol li {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  list-style: none;
-  padding-right: 3px;
-}
-
 .footer {
   position: absolute;
   bottom: 0;
@@ -73,11 +60,10 @@ ol li {
 }
 .dock {
   flex: 0 1 auto;
-  height: 80px;
-  padding: 8px;
+  height: 4.5rem;
+  padding: 0.5rem;
   background: rgba(235, 235, 235, 0.85);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  /*text-align: center;*/
+  /*border-bottom: 1px solid rgba(0, 0, 0, 0.1);*/
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 6px 6px 0 0;
   box-shadow: 0 8px 16px rgba(0,0,0,0.25);
@@ -90,7 +76,9 @@ ol li {
 }
 
 .icon {
-  width: 75px;
+  flex: 1 1 auto;
+  width: 4rem;
+  padding-right: 5px;
 }
 
 .line {
@@ -98,20 +86,3 @@ ol li {
   border-right: 1px solid black;
   padding-left: 5px;
 }
-/*
-.main {
-    padding-top: 5rem;
-    height: 100vh;
-    display: flex;
-    flex-flow: row wrap;
-    align-items: stretch;
-}
-nav {
-    flex: 1 1 20%;
-    background-color: red;
-    height: auto;
-}
-section {
-    flex: 2 1 80%;
-    background-color: blue;
-}*/
