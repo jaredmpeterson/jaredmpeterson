@@ -79,6 +79,11 @@ ul li {
 .icon {
   width: 75px;
 }
+
+.line {
+  height: 60px;
+  border-right: 1px solid black;
+}
 /*
 .main {
     padding-top: 5rem;
