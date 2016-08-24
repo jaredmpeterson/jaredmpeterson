@@ -1,0 +1,9 @@
+node_modules
+bower_components
+.DS_Store
+config.js
+bundle.js
+dist
+npm-debug.log
+*.eot
+*.ttf
