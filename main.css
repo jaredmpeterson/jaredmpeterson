@@ -44,6 +44,19 @@ ul li {
   padding-right: 21px;
 }
 
+ol {
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+ol li {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  list-style: none;
+  padding-right: 3px;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -78,6 +91,12 @@ ul li {
 
 .icon {
   width: 75px;
+}
+
+.line {
+  height: 60px;
+  border-right: 1px solid black;
+  padding-left: 5px;
 }
 /*
 .main {
