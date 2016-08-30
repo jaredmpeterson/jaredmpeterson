@@ -4,7 +4,7 @@ module.exports = function() {
   var config = {
     temp: '.tmp/',
     alljs: ['./*.js'],
-    sass: './src/styles/*.scss'
+    sass: './src/client/styles/*.scss'
 
   };
 
