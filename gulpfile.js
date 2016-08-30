@@ -16,7 +16,32 @@ gulp.task('vet', function() {
     .pipe($.jshint.reporter('fail'));
 });
 
+gulp.task('sass', ['clean-styles'], function() {
+  log('Compiling SCSS --> CSS');
+
+  return gulp
+    .src(config.sass)
+    .pipe($.plumber())
+    .pipe($.sass())
+    .pipe($.autoprefixer({browsers: ['last 2 version', '> 5%']}))
+    .pipe(gulp.dest(config.temp));
+});
+
+gulp.task('clean-styles', function() {
+  var files = config.temp + '**/*.css';
+  clean(files);
+});
+
+gulp.task('sass-watch', function() {
+  gulp.watch([config.sass], ['sass']);
+});
+
+
 // Functions //
+function clean(path, done) {
+  log('Cleaning: ' + $.util.colors.blue(path));
+  del(path, done);
+}
 
 function log(msg) {
   if (typeof(msg) === 'object') {
