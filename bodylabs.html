@@ -10,9 +10,19 @@
         <div id="bodyLabsBlueWidget" style="width: 860px; height 620px;">
             <!-- Blue will go here -->
         </div>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js" charset="utf-8"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/external/jquery/jquery.js" charset="utf-8"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.js" charset="utf-8"></script>
-        <script src="script.js" charset="utf-8"></script>
+
+        <script>
+            window.addEventListener('load', function() {
+                Blue.mount(document.getElementById('bodyLabsBlueWidget'), {
+                    accessKey: AK903f7f6b8ca8731562ea9e38c753dfe8,
+                    debug: false,
+                    action: {
+                        onFinished: function(finalMeasurements) {
+                            console.log(finalMeasurements)
+                        }
+                    }
+                });
+            });
+        </script>
     </body>
 </html>
