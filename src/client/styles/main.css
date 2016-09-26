@@ -1,4 +1,4 @@
-body {
+/*body {
     background: url('https://hd.unsplash.com/photo-1464695110811-dcf3903dc2f4') 100% no-repeat fixed;
     background-size: cover;
     font: 14px/1.4 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
@@ -57,14 +57,15 @@ ul li {
 }
 
 .spacer {
-  /*flex: 1 20%;*/
+  flex: 1 20%;
 }
+
 .dock {
   flex: 0 1 auto;
   height: 4.5rem;
   padding: 0.5rem;
   background: rgba(235, 235, 235, 0.85);
-  /*border-bottom: 1px solid rgba(0, 0, 0, 0.1);*/
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 6px 6px 0 0;
   box-shadow: 0 8px 16px rgba(0,0,0,0.25);
@@ -78,7 +79,7 @@ ul li {
 
 .icon {
   flex: 1 100%;
-  /*width: 4rem;*/
+  width: 4rem;
   padding-right: 5px;
 }
 
