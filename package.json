@@ -33,6 +33,5 @@
     "wiredep": "^4.0.0",
     "yargs": "^5.0.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
