@@ -20,7 +20,7 @@ gulp.task('vet', function () {
         .pipe($.jshint.reporter('fail'));
 });
 
-gulp.task('sass', ['clean-styles'], function () {
+gulp.task('styles', ['clean-styles'], function () {
     log('Compiling SCSS --> CSS');
 
     return gulp
@@ -38,8 +38,8 @@ gulp.task('clean-styles', function () {
     clean(files);
 });
 
-gulp.task('sass-watch', function () {
-    gulp.watch([config.sass], ['sass']);
+gulp.task('style-watch', function () {
+    gulp.watch([config.sass], ['styles']);
 });
 
 
