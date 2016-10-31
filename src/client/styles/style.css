@@ -4,7 +4,7 @@
   position: relative; }
 
 body {
-  background: url("https://hd.unsplash.com/photo-1464695110811-dcf3903dc2f4") 100% no-repeat fixed;
+  background: url("../images/bg.jpeg") 100% no-repeat fixed;
   background-size: cover;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font: 14px/1.4; }
