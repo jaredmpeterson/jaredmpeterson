@@ -21,7 +21,7 @@ gulp.task('vet', function () {
 });
 
 gulp.task('styles', ['clean-styles'], function () {
-  log('Compiling SCSS --> CSS');
+  log('Compiling Sass --> CSS');
 
   return gulp
     .src(config.sass)
@@ -51,6 +51,14 @@ gulp.task('wiredep', function () {
     .pipe(wiredep(options))
     .pipe($.inject(gulp.src(config.js)))
     .pipe(gulp.dest(config.client));
+});
+
+gulp.task('inject', ['wiredep', 'styles'], function () {
+    log('Wire our css into index and call wiredep');
+    return gulp
+        .src(config.index)
+        .pipe($.inject(gulp.src(config.css)))
+        .pipe(gulp.dest(config.client));
 });
 
 // Functions //

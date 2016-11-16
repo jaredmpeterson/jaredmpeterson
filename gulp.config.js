@@ -1,18 +1,32 @@
 module.exports = function () {
   var client = './src/client/';
   var clientApp = client + 'app/';
+  var temp = './.tmp/';
 
   var config = {
-    temp: '.tmp/',
+    /* file paths */
+    alljs: [
+      './src/**/*.js',
+      './*.js'
+    ],
     client: client,
-    alljs: ['./*.js'],
-    sass: client + 'styles/*.scss',
-    index: 'index.html',
+    css: temp + 'style.css',
+    index: client + 'index.html',
+    js: [
+      clientApp + '**/*.module.js',
+      clientApp + '**/*.js',
+      '!' + clientApp + '**/*.spec.js'
+    ],
+    sass: client + 'styles/style.scss',
+    temp: temp,
+
+    /* bower and npm */
     bower: {
       json: require('./bower.json'),
       directory: './bower_components/',
       ignorePath: '../..'
     }
+
   };
 
   config.wiredepOptions = function () {
