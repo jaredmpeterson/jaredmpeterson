@@ -15,18 +15,72 @@
 <body>
   <header class="menubar">
     <div class="menu">
-      <div class="apple">
-        <i class="fa fa-apple" aria-hidden="true"></i>
-      </div>
-      <ul>
-        <li>JMP</li>
-        <li>File</li>
-        <li>Edit</li>
-        <li>View</li>
-        <li>Go</li>
-        <li>Window</li>
-        <li>Help</li>
-      </ul>
+      <nav class="mainmenu">
+        <ul>
+          <li><a href="#"><i class="fa fa-apple" aria-hidden="true"></i></a>
+            <ul id="apple__menu">
+              <li><a href="#">About This Site</a></li>
+              <li class="menu--break"></li>
+              <li><a href="#">System Preferences...</a></li>
+               <li><a href="#">App Store...</a></li>
+               <li class="menu--break"></li>
+                <li><a href="#">Sleep</a></li>
+                 <li><a href="#">Restart...</a></li>
+                  <li><a href="#">Shut Down...</a></li>
+                  <li class="menu--break"></li>
+                   <li><a href="#">Log Out...</a></li>
+            </ul>
+          </li>
+          <li><a href="#">JMP</a>
+            <ul>
+              <li><a href="#">About Jared</a></li>
+              <li class="menu--break"></li>
+              <!--Easter Egg: Take out trash from Twins-->
+              <li><a href="#">Empty Trash...</a></li> 
+              <li class="menu--break"></li>
+              <li><a href="#">Show All</a></li>
+            </ul>
+          </li>
+          <li><a href="#">File</a>
+            <!--<ul>
+              <li><a href="#">Sub Menu 1</a></li>
+              <li><a href="#">Sub Menu 2</a></li>
+              <li><a href="#">Sub Menu 3</a></li>
+              <li><a href="#">Sub Menu 4</a>
+                <ul>
+                  <li><a href="#">Deep Menu 1</a>
+                    <ul>
+                      <li><a href="#">Sub Deep 1</a></li>
+                      <li><a href="#">Sub Deep 2</a></li>
+                      <li><a href="#">Sub Deep 3</a></li>
+                      <li><a href="#">Sub Deep 4</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">Deep Menu 2</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Sub Menu 5</a></li>
+            </ul>-->
+          </li>
+          <li>Edit</li>
+          <li>View</li>
+          <li><a href="#">Go</a>
+            <ul>
+              <li><a href="https://github.com/jaredmpeterson" target="_blank"><i class="fa fa-github" aria-hidden="true"></i>GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/thejaredpeterson" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i>LinkedIn</a></li>
+              <li><a href="https://twitter.com/jaredmpeterson" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i>Twitter</a></li>
+            </ul>
+          </li>
+          <li>Window</li>
+          <li><a href="#">Help</a>
+            <ul>
+              <li><a href="#">Help</a></li>
+              <li><a href="#">What's New in jmpOS</a></li>
+              <!--<li><a href="#"></a></li>-->
+            </ul>
+          </li>
+        </ul>
+      </nav>
     </div>
     <div class="utilities">
       <ul>

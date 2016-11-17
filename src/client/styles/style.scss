@@ -7,10 +7,10 @@
     }
     
     body {
-      /*background: url('https://hd.unsplash.com/photo-1464695110811-dcf3903dc2f4') 100% no-repeat fixed;*/
+      background: url('https://hd.unsplash.com/photo-1464695110811-dcf3903dc2f4') 100% no-repeat fixed;
       background-size: cover;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-      font: 14px/1.4;
+      font-size: 14px;
     }
     
     .menubar {
@@ -27,37 +27,118 @@
       .menu {
         display: flex;
         flex-flow: row wrap;
-        .apple {
-          padding: 0 21px;
+        padding: 0 21px;
+        .mainmenu {
+          /*margin-top: 0px;*/
+          display: flex;
+          align-items: center;
+          align-content: center;
+          ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            align-content: center;
+            a {
+              font-size: 0.9rem;
+              display: flex;
+              align-items: center;
+              text-align: center;
+              /*padding: 3px 10px;*/
+              text-decoration: none;
+              border: none;
+            }
+            li {
+              font-size: 0.9rem;
+              font-weight: normal;
+              display: flex;
+              align-items: center;
+              text-align: center;
+              list-style: none;
+              padding: 3px 10px;
+              &.current-menu-item {
+                background: $france;
+                border: none;
+              }
+              &:not(.menu--break):hover {
+                background: $france;
+                color: white;
+                border-bottom: 1px solid $france;
+              }
+              .menu--break {
+                padding: 0;
+                margin: 3px 0px;
+                border-bottom: 1px solid rgba(100, 100, 100, .2);
+              }
+            }
+            ul {
+              font-size: 0.9rem;
+              display: none;
+              position: absolute;
+              color: black;
+              top: 100%;
+              left: 0;
+              background: rgba(235, 235, 235, 0.85);
+              box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+              border-bottom-right-radius: 5px;
+              border-bottom-left-radius: 5px;
+              padding: 5px 0 5px 0;
+              li {
+                float: none;
+                width: 200px;
+              }
+              a {
+                font-size: 0.85rem;
+                padding: 0px 10px;
+              }
+              ul {
+                top: 0;
+                left: 100%;
+              }
+            }
+            li:hover>ul {
+              display: flex;
+              flex-direction: column;
+            }
+          }
         }
       }
+      /*#apple__menu {
+        li {
+          &:first-child {
+            margin-bottom: 3px;
+            border-bottom: 1px solid rgba(0, 0, 0, .1);
+          }
+          &:nth-child(2) {
+            margin-top: 3px;
+          }
+          &:last-child {
+            margin-top: 3px;
+            border-top: 1px solid rgba(0, 0, 0, .1);
+          }
+        }
+      }*/
       .utilities {
         display: flex;
         flex-flow: row wrap;
-      }
-    }
-    
-    ul {
-      /*background-color: $green;*/
-      /*height: 100%;*/
-      display: flex;
-      align-items: center;
-      align-content: center;
-      li {
-        /*height: 100%;*/
-        font-size: 0.9rem;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        list-style: none;
-        padding: 3px 10px;
-          &:first-child {
-         font-weight: bold;
-        }
-
-        &:hover {
-          background-color: $france;
-          color: white;
+        ul {
+          display: flex;
+          align-items: center;
+          align-content: center;
+          li {
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            list-style: none;
+            padding: 3px 10px;
+            &:first-child {
+              font-weight: bold;
+            }
+            &:hover {
+              background-color: $france;
+              color: white;
+            }
+          }
         }
       }
     }
@@ -97,7 +178,7 @@
         }
         .line {
           height: 60px;
-          border-right: 1px solid black;
+          border-right: 0.8px solid black;
           padding-left: 5px;
         }
       }
@@ -129,7 +210,7 @@
       width: 25vw;
       position: absolute;
       top: 40px;
-      left: 40px;
+      right: 40px;
       background: inherit;
       border: 1px solid rgba(0, 0, 0, 0.1);
       border-radius: 10px;
