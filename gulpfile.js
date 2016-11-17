@@ -26,10 +26,11 @@ gulp.task('styles', ['clean-styles'], function () {
   return gulp
     .src(config.sass)
     .pipe($.plumber())
-    .pipe($.sass())
+    .pipe($.sass.sync())
     .pipe($.autoprefixer({
       browsers: ['last 2 version', '> 5%']
     }))
+    .pipe($.plumber.stop())
     .pipe(gulp.dest(config.temp));
 });
 
@@ -62,9 +63,9 @@ gulp.task('inject', ['wiredep', 'styles'], function () {
 });
 
 // Functions //
-function clean(path, done) {
+function clean(path) {
   log('Cleaning: ' + $.util.colors.blue(path));
-  del(path, done);
+  return del(path);
 }
 
 function log(msg) {

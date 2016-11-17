@@ -23,7 +23,7 @@
     "validateQuoteMarks": "'",
     "disallowMultipleLineStrings": true,
     "disallowMixedSpacesAndTabs": true,
-    "disallowTrailingWhitespace": true,
+    "disallowTrailingWhitespace": false,
     "disallowSpaceAfterPrefixUnaryOperators": true,
     "disallowMultipleVarDecl": null,
     "requireSpaceAfterKeywords": [
