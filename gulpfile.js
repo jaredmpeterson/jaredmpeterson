@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var args = require('yargs').argv;
+var browserSync = require('browser-sync').create();
 var config = require('./gulp.config')();
 var del = require('del');
 
@@ -31,7 +32,8 @@ gulp.task('styles', ['clean-styles'], function () {
       browsers: ['last 2 version', '> 5%']
     }))
     .pipe($.plumber.stop())
-    .pipe(gulp.dest(config.temp));
+    .pipe(gulp.dest(config.temp))
+    .pipe(browserSync.stream());
 });
 
 gulp.task('clean-styles', function () {
@@ -62,9 +64,36 @@ gulp.task('inject', ['wiredep', 'styles'], function () {
         .pipe(gulp.dest(config.client));
 });
 
+gulp.task('serve', ['styles'], function() {
+
+    browserSync.init({
+        // server: config.root,
+        files: [
+            config.client + '**/*.*',
+            '!' + config.sass,
+            config.temp + '**/*.css'
+        ],
+        ghostMode: {
+            clicks: true,
+            location: false,
+            forms: true,
+            scroll: true
+        },
+        injectChanges: true,
+        logFileChanges: true,
+        logLevel: 'debug',
+        logPrefix: 'iviixvii',
+        notify: true,
+        reloadDelay: 0 //1000
+    });
+
+    gulp.watch([config.sass], ['styles']);
+    gulp.watch(config.index).on('change', browserSync.reload);
+});
+
 // Functions //
 function clean(path) {
-  log('Cleaning: ' + $.util.colors.blue(path));
+  log($.util.colors.bgCyan.white('Cleaning: ' + path));
   return del(path);
 }
 
@@ -72,10 +101,55 @@ function log(msg) {
   if (typeof (msg) === 'object') {
     for (var item in msg) {
       if (msg.hasOwnProperty(item)) {
-        $.util.log($.util.colors.blue(msg[item]));
+        $.util.log($.util.colors.yellow(msg[item]));
       }
     }
   } else {
-    $.util.log($.util.colors.blue(msg));
+    $.util.log($.util.colors.yellow(msg));
   }
+}
+
+function startBrowserSync(isDev) {
+    if (args.nosync || browserSync.active) {
+        return;
+    }
+
+    log('Starting browser-sync on port ' + port);
+
+    if (isDev) {
+        gulp.watch([config.sass], ['styles'])
+            .on('change', function (event) {
+                changeEvent(event);
+            });
+    } else {
+        gulp.watch([config.sass, config.js, config.html], ['optimize', browserSync.reload])
+            .on('change', function (event) {
+                changeEvent(event);
+            });
+    }
+
+
+    var options = {
+        proxy: 'localhost:' + port,
+        port: 3000,
+        files: isDev ? [
+            config.client + '**/*.*',
+            '!' + config.sass,
+            config.temp + '**/*.css'
+        ] : [],
+        ghostMode: {
+            clicks: true,
+            location: false,
+            forms: true,
+            scroll: true
+        },
+        injectChanges: true,
+        logFileChanges: true,
+        logLevel: 'debug',
+        logPrefix: 'iviixvii',
+        notify: true,
+        reloadDelay: 0 //1000
+    };
+
+    browserSync(options);
 }
