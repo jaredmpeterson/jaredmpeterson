@@ -9,6 +9,10 @@ var $ = require('gulp-load-plugins')({
   lazy: true
 });
 
+gulp.task('default', ['help']);
+
+gulp.task('help', $.taskListing);
+
 gulp.task('vet', function () {
   log('Analyzing source with JSHint and JSCS');
 
@@ -35,6 +39,25 @@ gulp.task('styles', ['clean-styles'], function () {
     .pipe($.plumber.stop())
     .pipe(gulp.dest(config.temp))
     .pipe(browserSync.stream());
+});
+
+gulp.task('images', ['clean-images'], function () {
+   log('Copying images');
+  return gulp
+    .src(config.images)
+    .pipe($.imagemin({optimizationLevel: 4}))
+    .pipe(gulp.dest(config.build + 'images'));
+});
+
+gulp.task('clean', function() {
+    var delconfig = [].concat(config.build, config.temp);
+    log($.util.colors.bgCyan.white('Cleaning: ' + delconfig));
+    del(delconfig);
+});
+
+gulp.task('clean-images', function () {
+  var files = config.build + 'images/**/*.*';
+  clean(files);
 });
 
 gulp.task('clean-styles', function () {
@@ -80,7 +103,7 @@ gulp.task('serve', ['styles'], function () {
       config.client + '**/*.*',
       '!' + config.sass,
       config.temp + '**/*.css'
-    ],    
+    ],
     ghostMode: {
       clicks: true,
       location: false,
@@ -89,7 +112,7 @@ gulp.task('serve', ['styles'], function () {
     },
     injectChanges: true,
     logFileChanges: true,
-    logLevel: 'debug',
+    logLevel: 'info',
     logPrefix: 'jmp',
     notify: true,
     reloadDelay: 0 //1000
@@ -115,4 +138,53 @@ function log(msg) {
   } else {
     $.util.log($.util.colors.yellow(msg));
   }
+}
+
+function changeEvent(event) {
+  var srcPattern = new RegExp('/.*(?=/' + config.source + ')/');
+  log('File ' + event.path.replace(srcPattern, '') + ' ' + event.type);
+}
+
+function startBrowserSync(isDev, specRunner) {
+  if (args.nosync || browserSync.active) {
+    return;
+  }
+
+  log('Starting browser-sync on port ' + port);
+
+  if (isDev) {
+    gulp.watch([config.less], ['styles'])
+      .on('change', changeEvent);
+  } else {
+    gulp.watch([config.less, config.js, config.html], ['optimize', browserSync.reload])
+      .on('change', changeEvent);
+  }
+
+  var options = {
+    proxy: 'localhost:' + port,
+    port: 3000,
+    files: isDev ? [
+      config.client + '**/*.*',
+      '!' + config.less,
+      config.temp + '**/*.css'
+    ] : [],
+    ghostMode: {
+      clicks: true,
+      location: false,
+      forms: true,
+      scroll: true
+    },
+    injectChanges: true,
+    logFileChanges: true,
+    logLevel: 'debug',
+    logPrefix: 'gulp-patterns',
+    notify: true,
+    reloadDelay: 0 //1000
+  };
+
+  if (specRunner) {
+    options.startPath = config.specRunnerFile;
+  }
+
+  browserSync(options);
 }
