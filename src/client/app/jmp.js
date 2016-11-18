@@ -2,6 +2,6 @@
 
     'use strict';
 
-    angular.module('jmp', []);
+    angular.module('jmp', ['layout']);
 
 })();
