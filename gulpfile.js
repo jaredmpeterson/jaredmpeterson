@@ -110,6 +110,24 @@ gulp.task('inject', ['wiredep', 'styles'], function () {
     .pipe(gulp.dest(config.client));
 });
 
+gulp.task('optimize', ['inject'], function() {
+    log('Optimizing the javascript, css, html');
+
+    var assets = $.useref.assets({searchPath: './'});
+    var templateCache = config.temp + config.templateCache.file;
+
+    return gulp
+        .src(config.index)
+        .pipe($.plumber())
+        .pipe($.inject(gulp.src(templateCache, {read: false}), {
+            starttag: '<!-- inject:templates:js -->'
+        }))
+        .pipe(assets)
+        .pipe(assets.restore())
+        .pipe($.useref())
+        .pipe(gulp.dest(config.build));
+});
+
 gulp.task('serve', ['styles'], function () {
 
   browserSync.init({

@@ -5,11 +5,15 @@
   <meta charset="utf-8">
   <title>Jared M. Peterson</title>
   <script src="https://use.fontawesome.com/367404a440.js"></script>
+  <!-- build:css styles/lib.css -->
   <!-- bower:css -->
   <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css styles/app.css-->
   <!-- inject:css -->
   <link rel="stylesheet" href="/.tmp/style.css">
   <!-- endinject -->
+  <!-- endbuild -->
 </head>
 
 <body>
@@ -23,6 +27,7 @@
     </div>
   </article>
   <dock></dock>
+  <!-- build:js js/lib.js -->
   <!-- bower:js -->
   <script src="/bower_components/angular/angular.js"></script>
   <script src="/bower_components/jquery/dist/jquery.js"></script>
@@ -30,6 +35,8 @@
   <script src="/bower_components/jquery-ui/jquery-ui.js"></script>
   <script src="/bower_components/angular-moment/angular-moment.js"></script>
   <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:js js/app.js-->
   <!-- inject:js -->
   <script src="/src/client/app/jmp.module.js"></script>
   <script src="/src/client/app/layout/layout.module.js"></script>
@@ -39,6 +46,9 @@
   <script src="/src/client/app/layout/menubar.component.js"></script>
   <script src="/src/client/app/layout/menubar.js"></script>
   <!-- endinject -->
+  <!-- inject:templates:js -->
+  <!-- endinject -->
+  <!-- endbuild -->
   <script src="script.js" charset="utf-8"></script>
 </body>
 
