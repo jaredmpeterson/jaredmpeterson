@@ -13,6 +13,7 @@ module.exports = function () {
     build: './build/',
     client: client,
     css: temp + 'style.css',
+    htmltemplates: clientApp + '**/*.html',
     images: client + 'images/**/*.*',
     index: client + 'index.html',
     js: [
@@ -29,6 +30,16 @@ module.exports = function () {
       json: require('./bower.json'),
       directory: './bower_components/',
       ignorePath: '../..'
+    },
+
+    /* template cache */
+    templateCache: {
+      file: 'templates.js',
+      options: {
+        module: 'layout',
+        standAlone: false,
+        root: 'app/'
+      }
     }
 
   };
