@@ -7,8 +7,7 @@
     }
     
     body {
-      /*background: url('https://hd.unsplash.com/photo-1464695110811-dcf3903dc2f4') 100% no-repeat fixed;*/
-      background-color: papayawhip;
+      background: url('https://hd.unsplash.com/photo-1464695110811-dcf3903dc2f4') 100% no-repeat fixed;
       background-size: cover;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
       font-size: 14px;
@@ -18,6 +17,8 @@
       min-width: 100% !important;
       height: 21px;
       position: fixed;
+      top: 0;
+      left: 0;
       background: rgba(235, 235, 235, 0.85);
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
