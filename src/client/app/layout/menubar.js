@@ -9,7 +9,7 @@
   function MenubarController($scope) {
     var vm = this;
     vm.title = 'Menubar';
-
+    
   // vm.time = moment().format("ddd MMM Do h:mm A");
   var dandt = document.getElementById('dandt');
   // document.getElementById('dandt').innerHTML=today;

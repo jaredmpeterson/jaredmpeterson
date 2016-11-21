@@ -11,12 +11,13 @@
     .component('dock', {
       templateUrl: '/app/layout/dock.html',
       controller: DockController,
+      controllerAs: 'Dock',
       bindings: {
         Binding: '=',
       },
     });
 
-  DockController.$inject = [''];
+  DockController.$inject = [];
   function DockController() {
     var $ctrl = this;
     

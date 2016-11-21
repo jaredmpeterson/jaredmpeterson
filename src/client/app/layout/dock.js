@@ -5,8 +5,8 @@
     .module('layout')
     .controller('DockController', DockController);
 
-  DockController.$inject = ['dependency1'];
-  function DockController(dependency1) {
+  DockController.$inject = ['$scope'];
+  function DockController($scope) {
     var vm = this;
     
 

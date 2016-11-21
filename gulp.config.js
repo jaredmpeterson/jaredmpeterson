@@ -13,6 +13,7 @@ module.exports = function () {
     build: './build/',
     client: client,
     css: temp + 'style.css',
+    html: clientApp + '**/*.html'
     htmltemplates: clientApp + '**/*.html',
     images: client + 'images/**/*.*',
     index: client + 'index.html',
