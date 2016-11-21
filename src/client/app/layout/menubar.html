@@ -1,4 +1,4 @@
- <header class="menubar">
+ <header class="menubar" ng-controller="MenubarController as Menubar">
     <div class="menu">
       <nav class="mainmenu">
         <ul>
@@ -48,6 +48,7 @@
             </ul>-->
           </li>
           <li>Edit</li>
+          <li>{{Menubar.title}}</li>
           <li>View</li>
           <li><a href="#">Go</a>
             <ul>
