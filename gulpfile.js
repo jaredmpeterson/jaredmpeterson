@@ -102,7 +102,7 @@ gulp.task('wiredep', function () {
     .pipe(gulp.dest(config.client));
 });
 
-gulp.task('inject', ['wiredep', 'styles'], function () {
+gulp.task('inject', ['wiredep', 'styles', 'templatecache'], function () {
   log('Wire our css into index and call wiredep');
   return gulp
     .src(config.index)
@@ -185,29 +185,35 @@ function changeEvent(event) {
   log('File ' + event.path.replace(srcPattern, '') + ' ' + event.type);
 }
 
-function startBrowserSync(isDev, specRunner) {
+function startBrowserSync(isDev) {
   if (args.nosync || browserSync.active) {
     return;
   }
 
-  log('Starting browser-sync on port ' + port);
+  // log('Starting browser-sync');
 
-  if (isDev) {
-    gulp.watch([config.less], ['styles'])
-      .on('change', changeEvent);
-  } else {
-    gulp.watch([config.less, config.js, config.html], ['optimize', browserSync.reload])
-      .on('change', changeEvent);
-  }
+  // if (isDev) {
+  //   gulp.watch([config.less], ['styles'])
+  //     .on('change', changeEvent);
+  // } else {
+  //   gulp.watch([config.less, config.js, config.html], ['optimize', reload()])
+  //     .on('change', changeEvent);
+  // }
 
   var options = {
-    proxy: 'localhost:' + port,
-    port: 3000,
-    files: isDev ? [
+    server: {
+      baseDir: [config.client],
+      routes: {
+        '/bower_components': 'bower_components',
+        '/src': 'src',
+        '/.tmp': '.tmp'
+      }
+    },
+    files: [
       config.client + '**/*.*',
-      '!' + config.less,
+      '!' + config.sass,
       config.temp + '**/*.css'
-    ] : [],
+    ],
     ghostMode: {
       clicks: true,
       location: false,
@@ -216,15 +222,11 @@ function startBrowserSync(isDev, specRunner) {
     },
     injectChanges: true,
     logFileChanges: true,
-    logLevel: 'debug',
-    logPrefix: 'gulp-patterns',
+    logLevel: 'info',
+    logPrefix: 'jmp',
     notify: true,
     reloadDelay: 0 //1000
   };
 
-  if (specRunner) {
-    options.startPath = config.specRunnerFile;
-  }
-
-  browserSync(options);
+  browserSync.init(options);
 }

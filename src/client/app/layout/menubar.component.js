@@ -9,7 +9,7 @@
   angular
     .module('layout')
     .component('menubar', {
-      templateUrl: '/app/layout/menubar.html',
+      templateUrl: 'app/layout/menubar.html',
       controller: MenubarController,
       controllerAs: 'Menubar',
       bindings: {

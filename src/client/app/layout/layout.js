@@ -5,8 +5,8 @@
     .module('layout')
     .controller('LayoutController', LayoutController);
 
-  LayoutController.$inject = ['dependency1'];
-  function LayoutController(dependency1) {
+  LayoutController.$inject = [];
+  function LayoutController() {
     var vm = this;
     
 

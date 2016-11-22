@@ -13,7 +13,7 @@ module.exports = function () {
     build: './build/',
     client: client,
     css: temp + 'style.css',
-    html: clientApp + '**/*.html'
+    html: clientApp + '**/*.html',
     htmltemplates: clientApp + '**/*.html',
     images: client + 'images/**/*.*',
     index: client + 'index.html',
@@ -25,6 +25,12 @@ module.exports = function () {
     root: root,
     sass: client + 'styles/style.scss',
     temp: temp,
+
+    /* optimized files */
+    optimized: {
+      app: 'app.js',
+      lib: 'lib.js'
+    },
 
     /* bower and npm */
     bower: {

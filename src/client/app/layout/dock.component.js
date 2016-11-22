@@ -9,7 +9,7 @@
   angular
     .module('layout')
     .component('dock', {
-      templateUrl: '/app/layout/dock.html',
+      templateUrl: 'app/layout/dock.html',
       controller: DockController,
       controllerAs: 'Dock',
       bindings: {
