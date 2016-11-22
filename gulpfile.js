@@ -42,17 +42,19 @@ gulp.task('styles', ['clean-styles'], function () {
 });
 
 gulp.task('images', ['clean-images'], function () {
-   log('Copying images');
+  log('Copying images');
   return gulp
     .src(config.images)
-    .pipe($.imagemin({optimizationLevel: 4}))
+    .pipe($.imagemin({
+      optimizationLevel: 4
+    }))
     .pipe(gulp.dest(config.build + 'images'));
 });
 
-gulp.task('clean', function() {
-    var delconfig = [].concat(config.build, config.temp);
-    log($.util.colors.bgCyan.white('Cleaning: ' + delconfig));
-    del(delconfig);
+gulp.task('clean', function () {
+  var delconfig = [].concat(config.build, config.temp);
+  log($.util.colors.bgCyan.white('Cleaning: ' + delconfig));
+  del(delconfig);
 });
 
 gulp.task('clean-images', function () {
@@ -65,30 +67,32 @@ gulp.task('clean-styles', function () {
   clean(files);
 });
 
-gulp.task('clean-code', function() {
-    var files = [].concat(
-        config.temp + '**/*.js',
-        config.build + '**/*.html',
-        config.build + 'js/**/*.js'
-    );
-    clean(files);
+gulp.task('clean-code', function () {
+  var files = [].concat(
+    config.temp + '**/*.js',
+    config.build + '**/*.html',
+    config.build + 'js/**/*.js'
+  );
+  clean(files);
 });
 
 gulp.task('style-watch', function () {
   gulp.watch([config.sass], ['styles']);
 });
 
-gulp.task('templatecache', ['clean-code'], function() {
-    log('Creating AngularJS $templateCache');
+gulp.task('templatecache', ['clean-code'], function () {
+  log('Creating AngularJS $templateCache');
 
-    return gulp
-        .src(config.htmltemplates)
-        .pipe($.minifyHtml({empty: true}))
-        .pipe($.angularTemplatecache(
-            config.templateCache.file,
-            config.templateCache.options
-            ))
-        .pipe(gulp.dest(config.temp));
+  return gulp
+    .src(config.htmltemplates)
+    .pipe($.minifyHtml({
+      empty: true
+    }))
+    .pipe($.angularTemplatecache(
+      config.templateCache.file,
+      config.templateCache.options
+    ))
+    .pipe(gulp.dest(config.temp));
 });
 
 gulp.task('wiredep', function () {
@@ -110,22 +114,30 @@ gulp.task('inject', ['wiredep', 'styles', 'templatecache'], function () {
     .pipe(gulp.dest(config.client));
 });
 
-gulp.task('optimize', ['inject'], function() {
-    log('Optimizing the javascript, css, html');
+gulp.task('optimize', ['inject'], function () {
+  log('Optimizing the javascript, css, html');
 
-    var assets = $.useref.assets({searchPath: './'});
-    var templateCache = config.temp + config.templateCache.file;
+  var assets = $.useref.assets({
+    searchPath: './'
+  });
+  var templateCache = config.temp + config.templateCache.file;
+  var cssFilter = $.filter('**/*.css');
+  var jsFilter = $.filter('**/*.js');
 
-    return gulp
-        .src(config.index)
-        .pipe($.plumber())
-        .pipe($.inject(gulp.src(templateCache, {read: false}), {
-            starttag: '<!-- inject:templates:js -->'
-        }))
-        .pipe(assets)
-        .pipe(assets.restore())
-        .pipe($.useref())
-        .pipe(gulp.dest(config.build));
+  return gulp
+    .src(config.index)
+    .pipe($.plumber())
+    .pipe($.inject(gulp.src(templateCache, {read: false}), {starttag: '<!-- inject:templates:js -->'}))
+    .pipe(assets)
+    .pipe(cssFilter)
+    .pipe($.csso())
+    .pipe(cssFilter.restore())
+    .pipe(jsFilter)
+    .pipe($.uglify())
+    .pipe(jsFilter.restore())
+    .pipe(assets.restore())
+    .pipe($.useref())
+    .pipe(gulp.dest(config.build));
 });
 
 gulp.task('serve', ['styles'], function () {
@@ -162,6 +174,14 @@ gulp.task('serve', ['styles'], function () {
   // gulp.watch(config.index).on('change', reload());
 });
 
+gulp.task('serve-build', ['optimize'], function () {
+  startBrowserSync(false);
+});
+
+gulp.task('serve-dev', ['inject'], function () {
+  startBrowserSync(true);
+});
+
 // Functions //
 function clean(path) {
   log($.util.colors.bgCyan.white('Cleaning: ' + path));
@@ -186,34 +206,32 @@ function changeEvent(event) {
 }
 
 function startBrowserSync(isDev) {
+
+  log('Starting browser-sync');
   if (args.nosync || browserSync.active) {
     return;
   }
 
-  // log('Starting browser-sync');
-
-  // if (isDev) {
-  //   gulp.watch([config.less], ['styles'])
-  //     .on('change', changeEvent);
-  // } else {
-  //   gulp.watch([config.less, config.js, config.html], ['optimize', reload()])
-  //     .on('change', changeEvent);
-  // }
+  if (isDev) {
+    gulp.watch([config.sass], ['styles']);
+  } else {
+    gulp.watch([config.sass, config.js, config.html], ['optimize']);
+  }
 
   var options = {
     server: {
-      baseDir: [config.client],
+      baseDir: isDev ? [config.client] : [config.build],
       routes: {
         '/bower_components': 'bower_components',
         '/src': 'src',
         '/.tmp': '.tmp'
       }
     },
-    files: [
+    files: isDev ? [
       config.client + '**/*.*',
       '!' + config.sass,
       config.temp + '**/*.css'
-    ],
+    ] : [],
     ghostMode: {
       clicks: true,
       location: false,
