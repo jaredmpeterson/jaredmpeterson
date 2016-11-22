@@ -17,6 +17,7 @@ module.exports = function () {
     htmltemplates: clientApp + '**/*.html',
     images: client + 'images/**/*.*',
     index: client + 'index.html',
+    jQuery: client + 'script.js',
     js: [
       clientApp + '**/*.module.js',
       clientApp + '**/*.js',
