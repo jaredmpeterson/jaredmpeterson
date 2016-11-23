@@ -114,7 +114,7 @@ gulp.task('inject', ['wiredep', 'styles', 'templatecache'], function () {
     .pipe(gulp.dest(config.client));
 });
 
-gulp.task('optimize', ['inject'], function () {
+gulp.task('optimize', ['inject', 'images'], function () {
   log('Optimizing the javascript, css, html');
 
   var assets = $.useref.assets({
