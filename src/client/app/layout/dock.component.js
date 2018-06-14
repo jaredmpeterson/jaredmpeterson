@@ -1,5 +1,5 @@
-(function() {
-'use strict';
+(function () {
+  'use strict';
 
   // Usage:
   // 
@@ -20,12 +20,12 @@
   DockController.$inject = [];
   function DockController() {
     var $ctrl = this;
-    
+
 
     ////////////////
 
-    $ctrl.$onInit = function() { };
-    $ctrl.$onChanges = function(changesObj) { };
-    $ctrl.$onDestory = function() { };
+    $ctrl.$onInit = function () { };
+    $ctrl.$onChanges = function (changesObj) { };
+    $ctrl.$onDestroy = function () { };
   }
 })();
