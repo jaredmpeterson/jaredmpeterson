@@ -39,7 +39,7 @@
     "gulp-util": "^3.0.7",
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",
-    "node-sass": "^3.13.0",
+    "node-sass": "^3.13.1",
     "wiredep": "^4.0.0",
     "yargs": "^5.0.0"
   },
