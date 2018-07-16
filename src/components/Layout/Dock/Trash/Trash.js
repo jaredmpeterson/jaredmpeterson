@@ -1,34 +1,34 @@
-import React, { Component } from "react";
-import classes from "./Trash.css";
+import React, { Component } from 'react'
+import classes from './Trash.css'
 
-import full from "../../../../assets/images/dockicons/trashfull_icon.png";
-import empty from "../../../../assets/images/dockicons/trashempty_icon.png";
+import full from '../../../../assets/dockicons/trashfull_icon.png'
+import empty from '../../../../assets/dockicons/trashempty_icon.png'
 
 class Trash extends Component {
   constructor(props) {
-    super(props);
-    this.state = { isTrashFull: true };
+    super(props)
+    this.state = { isTrashFull: true }
   }
 
   toggleTrash = () => {
     this.setState(prevState => ({
-      isTrashFull: !prevState.isTrashFull
-    }));
-  };
+      isTrashFull: !prevState.isTrashFull,
+    }))
+  }
 
   render() {
-    const isTrashFull = this.state.isTrashFull;
+    const isTrashFull = this.state.isTrashFull
 
-    let icon = null;
+    let icon = null
 
     if (isTrashFull) {
-      icon = <img src={full} alt="Trash" onClick={this.toggleTrash} />;
+      icon = <img src={full} alt="Trash" onClick={this.toggleTrash} />
     } else {
-      icon = <img src={empty} alt="Trash" onClick={this.toggleTrash} />;
+      icon = <img src={empty} alt="Trash" onClick={this.toggleTrash} />
     }
 
-    return <div className={classes.Trash}>{icon}</div>;
+    return <div className={classes.Trash}>{icon}</div>
   }
 }
 
-export default Trash;
+export default Trash
