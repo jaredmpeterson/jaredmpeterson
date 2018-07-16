@@ -1,47 +1,16 @@
 {
   "name": "jaredmpeterson",
   "version": "0.1.0",
-  "description": "jaredmpeterson",
+  "private": true,
+  "dependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-scripts": "1.1.4"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jaredmpeterson/jaredmpeterson.git"
-  },
-  "author": "Jared M. Peterson",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jaredmpeterson/jaredmpeterson/issues"
-  },
-  "homepage": "www.jaredmpeterson.com",
-  "devDependencies": {
-    "browser-sync": "^2.24.5",
-    "del": "^3.0.0",
-    "gulp": "^3.9.1",
-    "gulp-angular-templatecache": "^2.0.0",
-    "gulp-autoprefixer": "^5.0.0",
-    "gulp-csso": "^3.0.1",
-    "gulp-filter": "^5.1.0",
-    "gulp-if": "^2.0.2",
-    "gulp-imagemin": "^4.1.0",
-    "gulp-inject": "^4.1.0",
-    "gulp-jscs": "^4.0.0",
-    "gulp-jshint": "^2.0.4",
-    "gulp-load-plugins": "^1.4.0",
-    "gulp-minify-html": "^1.0.6",
-    "gulp-plumber": "^1.1.0",
-    "gulp-print": "^5.0.0",
-    "gulp-sass": "^4.0.1",
-    "gulp-task-listing": "^1.0.1",
-    "gulp-uglify": "^3.0.0",
-    "gulp-useref": "^3.1.5",
-    "gulp-util": "^3.0.7",
-    "jshint": "^2.9.5",
-    "jshint-stylish": "^2.2.1",
-    "node-sass": "^4.9.2",
-    "wiredep": "^4.0.0",
-    "yargs": "^12.0.1"
-  },
-  "dependencies": {}
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
 }
