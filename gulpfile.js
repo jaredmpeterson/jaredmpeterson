@@ -227,6 +227,7 @@ function startBrowserSync(isDev) {
         '/.tmp': '.tmp'
       }
     },
+    https: true,
     files: isDev ? [
       config.client + '**/*.*',
       '!' + config.sass,

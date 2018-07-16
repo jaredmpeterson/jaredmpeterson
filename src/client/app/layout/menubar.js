@@ -5,8 +5,8 @@
     .module('layout')
     .controller('MenubarController', MenubarController);
 
-  MenubarController.$inject = ['$scope'];
-  function MenubarController($scope) {
+  MenubarController.$inject = ['$scope', 'geolocationService'];
+  function MenubarController($scope, geolocationService) {
     var vm = this;
     vm.title = 'Menubar';
     
