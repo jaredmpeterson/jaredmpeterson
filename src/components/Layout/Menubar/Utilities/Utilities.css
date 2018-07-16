@@ -1,0 +1,25 @@
+.Utilities {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.Utilities ul {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.Utilities ul li {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    list-style: none;
+    padding: 3px 10px;
+}
+
+.Utilities ul li:hover {
+    background-color: cornflowerblue;
+    color: white;
+}

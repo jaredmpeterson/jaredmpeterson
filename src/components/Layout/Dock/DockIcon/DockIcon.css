@@ -1,0 +1,16 @@
+.DockIcon {
+    height: var(--icon);
+    width: var(--icon);
+    /* overflow: hidden; */
+    display: grid;
+    align-content: center;
+    grid-template-columns: 1;
+    grid-template-rows: 1;
+}
+
+.DockIcon img {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    width: 100%;
+    object-fit: cover;
+}

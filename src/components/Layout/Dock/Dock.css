@@ -1,0 +1,23 @@
+.Footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    min-width: 100%;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.Dock {
+    padding: 0.5rem;
+    background: rgba(235, 235, 235, 0.75);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 6px 6px 0 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    /* overflow: hidden; */
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(auto-fit, var(--icon));
+    grid-auto-flow: column;
+    /* grid-template-rows: calc(var(--icon)+1rem) 11px; */
+    grid-gap: 5px;
+}
