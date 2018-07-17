@@ -1,78 +1,91 @@
-.Menu {
-    display: flex;
-    flex-flow: row wrap;
-    padding: 0 21px;
-}
+ .Menu {
+     display: flex;
+     flex-flow: row wrap;
+     padding: 0 21px;
+ }
 
-.Mainmenu {
-    display: flex;
-    align-items: center;
-    align-content: center;
-}
+ .Menu .Mainmenu {
+     /*margin-top: 0px;*/
+     display: flex;
+     align-items: center;
+     align-content: center;
+ }
 
-.Mainmenu ul {
-    /* display: grid; */
-    list-style: none;
-    display: flex;
-    align-items: center;
-    align-content: center;
-}
+ .Menu .Mainmenu ul {
+     list-style: none;
+     display: flex;
+     align-items: center;
+     align-content: center;
+ }
 
-.Mainmenu ul a {
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    text-decoration: none;
-    border: none;
-}
+ .Menu .Mainmenu ul a {
+     font-size: 0.9rem;
+     display: flex;
+     align-items: center;
+     text-align: center;
+     /*padding: 3px 10px;*/
+     text-decoration: none;
+     border: none;
+     color: black;
+ }
 
-.Mainmenu:first-child li {
-    font-weight: bold;
-}
+ .Menu .Mainmenu ul li {
+     font-size: 0.9rem;
+     font-weight: normal;
+     display: flex;
+     align-items: center;
+     text-align: center;
+     list-style: none;
+     padding: 3px 10px;
+ }
 
-.Break {
-    padding: 0;
-    margin: 3px 0px;
-    border-bottom: 1px solid rgba(100, 100, 100, .2);
-}
+ .Menu .Mainmenu ul li.current-menu-item {
+     background: #2681EF;
+     border: none;
+ }
 
-.Submenu {
-    font-weight: normal;
-    font-size: 0.9rem;
-    display: none;
-    position: absolute;
-    color: black;
-    top: 100%;
-    left: 0;
-    background: rgba(235, 235, 235, 0.85);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    padding: 5px 0 5px 0;
-}
+ .Menu .Mainmenu ul li:not(.Menubreak):hover {
+     background: #2681EF;
+     color: white;
+     border-bottom: 1px solid #2681EF;
+ }
 
-li:hover>ul {
-    display: flex;
-    flex-direction: column;
-}
+ .Menu .Mainmenu ul li .Menubreak {
+     padding: 0;
+     margin: 3px 0px;
+     border-bottom: 1px solid rgba(100, 100, 100, 0.2);
+ }
 
-/* .Mainmenu ul p {
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    padding: 3px 10px;
-    text-decoration: none;
-    border: none;
-}
+ .Menu .Mainmenu ul ul {
+     font-size: 0.9rem;
+     display: none;
+     position: absolute;
+     color: black;
+     top: 100%;
+     left: 0;
+     background: rgba(235, 235, 235, 0.85);
+     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+     border-bottom-right-radius: 5px;
+     border-bottom-left-radius: 5px;
+     padding: 5px 0 5px 0;
+ }
 
-.Mainmenu ul li {
-    font-size: 0.9rem;
-    font-weight: normal;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    list-style: none;
-    padding: 3px 10px;
-} */
+ .Menu .Mainmenu ul ul li {
+     float: none;
+     width: 200px;
+ }
+
+ .Menu .Mainmenu ul ul a {
+     font-size: 0.85rem;
+     padding: 0px 10px;
+ }
+
+ .Menu .Mainmenu ul ul ul {
+     top: 0;
+     left: 100%;
+ }
+
+ .Menu .Mainmenu ul li:hover>ul {
+     display: flex;
+     flex-direction: column;
+ }

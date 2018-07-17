@@ -1,7 +1,7 @@
 .Menubar {
-    min-width: 100% !important;
-    height: 21px;
     position: fixed;
+    height: 21px;
+    min-width: 100% !important;
     top: 0;
     left: 0;
     background: rgba(235, 235, 235, 0.85);
