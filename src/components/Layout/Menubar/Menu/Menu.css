@@ -1,21 +1,30 @@
 .Menu {
-    list-style: none;
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: 21px auto;
-    grid-gap: 10px;
-    grid-auto-columns: auto;
+    display: flex;
+    flex-flow: row wrap;
     padding: 0 21px;
 }
 
 .Mainmenu {
-    height: 100%;
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: auto;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.Mainmenu ul {
+    /* display: grid; */
     list-style: none;
-    grid-gap: 10px;
-    padding: 0;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.Mainmenu ul a {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    border: none;
 }
 
 .Mainmenu:first-child li {
@@ -47,11 +56,6 @@ li:hover>ul {
     display: flex;
     flex-direction: column;
 }
-
-/* 
-.Mainmenu ul {
-    display: grid;
-} */
 
 /* .Mainmenu ul p {
     font-size: 0.9rem;
