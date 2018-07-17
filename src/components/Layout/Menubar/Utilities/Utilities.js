@@ -6,6 +6,7 @@ const Utilities = props => {
   return (
     <div className={classes.Utilities}>
       <ul>
+        <li />
         <li>
           <i className="fa fa-wifi fa-lg" aria-hidden="true" />
         </li>
