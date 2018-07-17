@@ -14,3 +14,19 @@
     width: 100%;
     object-fit: cover;
 }
+
+.Close {
+    /* border-bottom: 1px solid black; */
+}
+
+.Open {
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background-color: rgba(39, 39, 39, 0.9);
+    border: 1px solid rgba(39, 39, 39, 0.9);
+    border-radius: 50%;
+    /* z-index: 10; */
+}
